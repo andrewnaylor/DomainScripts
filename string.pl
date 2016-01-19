@@ -8,8 +8,11 @@ my $reply="";
 if ( $ARGV[0] ) { $reply = $ARGV[0]; }
 my $letters = [ qw( a b c d e f g h i j k l m n o p q r s t u v w x y z ) ];
 my $pinyin  = [ qw(   b c d   f g h   j k l m n   p q r s t     w x y z ) ];
-my $numbers = [ ( 0 .. 9 ) ];
-my @numbers = ( 0 .. 9 );
+my $prefix  = [ qw( cn bj sh gd ) ];
+my $suffix  = [ qw( cn lc zx kj sj ) ];
+my $number1 = [ ( 0 .. 9 ) ];
+my $number2 = [ qw( zero one two three four five six seven eight nine ) ];
+my $number3 = [ qw( ten twenty thirty fourty fifty sixty seventy eighty ninety ) ];
 
 if ( !$ARGV[0] ) {
 	print "What pattern would you like to search? ";
@@ -29,9 +32,13 @@ my @chars = split //, $reply;
 my $ccount = scalar @chars;
 print "There are $ccount characters. Loading data...\n" if $debug > 0;
 for my $c ( 0 .. $#chars ) {
-	if ( $chars[$c] =~ m/N/ )    { $carray[$c]    = $numbers;   }
+	if ( $chars[$c] =~ m/N/ )    { $carray[$c]    = $number1;   }
 	elsif ( $chars[$c] =~ m/L/ ) { $carray[$c]    = $letters;   }
 	elsif ( $chars[$c] =~ m/P/ ) { $carray[$c]    = $pinyin;    }
+	elsif ( $chars[$c] =~ m/E/ ) { $carray[$c]    = $prefix;    }
+	elsif ( $chars[$c] =~ m/U/ ) { $carray[$c]    = $suffix;    }
+	elsif ( $chars[$c] =~ m/Z/ ) { $carray[$c]    = $number2;   }
+	elsif ( $chars[$c] =~ m/T/ ) { $carray[$c]    = $number3;   }
 	else                         { $carray[$c][0] = $chars[$c]; };
 	print "$c - $chars[$c]\n" if $debug > 1;
 }
