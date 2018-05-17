@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use Set::CrossProduct;
 
-my $debug = 1;
+my $debug = 0;
 my $reply="";
 if ( $ARGV[0] ) { $reply = $ARGV[0]; }
 
@@ -59,18 +59,18 @@ Examples:
 
 Turning off interactive mode
 
-	To turn off interactive mode, run this command with the preferred pattern on the command line:
+	To turn off interactive mode, run this command with a pattern on the command line:
 	./string.pl NN.org
 	./string.pl LLLL
 
 What pattern would you like to search? ";
 	chomp($reply=<STDIN>);
-	if ( $reply =~ m/^[a-z,0-9,-,.]{1,10}$/i ) {
+	if ( $reply =~ m/^[a-z,0-9,-,.]{2,10}$/i ) {
 		print "Pattern is okay.\n" if $debug > 0;
 		print "Okay, searching for $reply.\n";
 	}
 	else {
-		print "Bad pattern. Expected A-Z, 0-9, -, length from 2 to 10 characters. Please try again.\n";
+		print "Bad pattern. Expected A-Z, a-z, 0-9, -, ., length from 2 to 10 characters. Please try again.\n";
 		exit ();
 	};
 }
