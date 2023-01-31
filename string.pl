@@ -14,22 +14,31 @@ if ( $ARGV[0] ) { $reply = $ARGV[0]; }
 
 # All letters, a-z.
 my $letters = [ qw( a b c d e f g h i j k l m n o p q r s t u v w x y z ) ];
+
 # This pinyin list is the favored letters for Chinese domain investors.
 my $pinyin  = [ qw(   b c d   f g h   j k l m n   p q r s t     w x y z ) ];
+
 # Letters and numbers
 my $letnum  = [ qw( a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 ) ];
+
 # These are the most desired two-letter Pinyin prefixes.
 my $prefix  = [ qw( cn bj sh gd ) ];
+
 # These are the most desired two-letter Pinyin suffixes.
 my $suffix  = [ qw( cn lc zx kj sj ) ];
+
 # Numbers.
 my $numberN = [ ( 0 .. 9 ) ];
+
 # Numbers spelled out, except zero (for spelling out number combinations like twentyone
 my $numberY = [ qw( one two three four five six seven eight nine ) ];
+
 # Numbers spelled out.
 my $numberZ = [ qw( zero one two three four five six seven eight nine ten ) ];
+
 # Single word number words.
 my $numberV = [ qw( eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen ) ];
+
 # Single word number words, product of ten.
 my $numberT = [ qw( twenty thirty fourty fifty sixty seventy eighty ninety ) ];
 
